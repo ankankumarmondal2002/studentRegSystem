@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Registration System</title>
+
+  <!-- Poppins Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Student Registration System</h1>
+    <p>A simple system to register, edit, and manage student records with local storage.</p>
+  </header>
+
+  <!-- Content -->
+  <main class="container">
+    <!-- Form Card -->
+    <section class="card form-section">
+      <h2>Register New Student</h2>
+      <form id="studentForm">
+        <label for="studentName">Student Name</label>
+        <input type="text" id="studentName" name="studentName" required />
+
+        <label for="studentID">Student ID</label>
+        <input type="number" id="studentID" name="studentID" required />
+
+        <label for="email">Email ID</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="contact">Contact Number</label>
+        <input type="tel" id="contact" name="contact" required />
+
+        <button type="submit">+ Add Student</button>
+      </form>
+    </section>
+
+    <!-- Records Card -->
+    <section class="card records-section">
+      <h2>Registered Students</h2>
+      <div class="table-container">
+        <table id="studentTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Contact</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamic rows -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
