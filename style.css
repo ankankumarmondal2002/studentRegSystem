@@ -1,0 +1,217 @@
+/* ===========================
+   General Reset & Base Styles
+   ---------------------------
+   Remove default margins/padding and 
+   set consistent box-sizing. Also, 
+   apply the main font across the app.
+=========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Body styles: background gradient and padding */
+body {
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  padding: 20px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto; /* Always allow vertical scroll */
+}
+
+/* ===========================
+   Header Styling
+   ---------------------------
+   Centered text with spacing 
+   and white color for contrast.
+=========================== */
+header {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #fff;
+}
+header h1 {
+  font-size: 2rem; /* Main title size */
+}
+
+/* ===========================
+   Main Container
+   ---------------------------
+   Flex layout to keep cards side-by-side 
+   on large screens and stacked on small screens.
+=========================== */
+.container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===========================
+   Card Styles
+   ---------------------------
+   White background, padding, rounded corners, 
+   subtle shadow for nice “card” effect.
+=========================== */
+.card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  flex: 1;
+  min-width: 320px;
+  max-width: 550px;
+}
+.card h2 {
+  margin-bottom: 20px;
+  color: #444;
+  font-size: 1.3rem;
+}
+
+/* ===========================
+   Form Styles
+   ---------------------------
+   Vertical form layout with spacing 
+   and neat input fields.
+=========================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+form label {
+  font-weight: 500;
+}
+form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+form button {
+  margin-top: 10px;
+  padding: 12px;
+  background: #6a5acd; /* Purple button */
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+form button:hover {
+  background: #4f3ba9; /* Darker on hover */
+}
+
+/* ===========================
+   Scrollable Table Container
+   ---------------------------
+   Adds a scroll when too many rows are present.
+=========================== */
+.table-container {
+  max-height: 350px; /* Limit height on desktop */
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on mobile */
+}
+
+/* Table basics */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th {
+  background: #6a5acd;
+  color: white;
+  padding: 12px;
+}
+td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+/* ===========================
+   Action Buttons (Edit/Delete)
+   ---------------------------
+   Stylish buttons with hover effects 
+   for intuitive editing and deleting.
+=========================== */
+td button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0 6px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+td button:hover {
+  transform: scale(1.2);
+}
+td button.edit {
+  color: #ffaa00; /* Yellow for edit */
+}
+td button.edit:hover {
+  color: #cc8800;
+}
+td button.delete {
+  color: #ff4c4c; /* Red for delete */
+}
+td button.delete:hover {
+  color: #cc0000;
+}
+
+/* ===========================
+   Responsive Layout for Mobile
+   ---------------------------
+   Converts table to card view for small screens 
+   for better readability.
+=========================== */
+@media (max-width: 768px) {
+  table, thead, tbody, tr, th, td {
+    display: block;
+    width: 100%;
+  }
+  thead {
+    display: none; /* Hide header row */
+  }
+  tr {
+    background: #fff;
+    border: 1px solid #bbb;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    padding: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+  td {
+    display: block;
+    text-align: left;
+    padding: 10px 6px;
+    border-bottom: 1px solid #ddd;
+  }
+  td:last-child {
+    border-bottom: none;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    padding-top: 12px;
+  }
+  td::before {
+    content: attr(data-label) ": "; /* Show label before value */
+    font-weight: 600;
+    color: #6a5acd;
+    margin-right: 6px;
+  }
+  td button {
+    font-size: 1.4rem;
+  }
+  .table-container {
+    max-height: 70vh; /* 70% of viewport on mobile */
+    overflow-y: auto;
+    overflow-x: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+}
